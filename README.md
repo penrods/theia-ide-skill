@@ -1,57 +1,51 @@
-# <img src='theia.png' card_color='#40DBB0' width='50' style='vertical-align:bottom'/> THEIA IDE
-VS Code experience on your Mycroft device.
+# <img src='theia.png' card_color='#40DBB0' width='50' style='vertical-align:bottom'/> Theia IDE
+Create your own skills and learn to code
 
 ## About
-Installs and setup THEIA IDE locally on your Mycroft device.
+Edit Python code directly on your Mycroft device using a web browser.
 
 ## Description
-This skill installs Theia IDE on your Mycroft device. This makes it easy to make and edit skills for Mycroft. Theia IDE integrates with Github, and you can use Mycroft tools like mycroft-msm and mycroft-msk directly from the integrated shell in the IDE.
-Theia provides the VS Code experience in the browser.
-People familiar with Microsoft's VS Code editor will find many familiar features and concepts.
+This installs [Theia IDE](https://www.theia-ide.org/index.html) on your Mycroft device. Theia makes it easy to create and edit Python skills for Mycroft. Theia IDE integrates with GitHub, and you can use Mycroft tools like `mycroft-msm` and `mycroft-msk` directly from the IDE's integrated shell. Theia is built on the excellent open source VS Code editor from Microsoft.
 
-https://www.theia-ide.org/index.html
+Explore the skills of others for ideas and learn to code your own Skills!  The built-in highlighting and dynamic code hints help take the tedium out of programming, letting you focus on what you want to make.
 
 <img src='screenshot.png' card_color='#40DBB0' width=800 style='vertical-align:bottom'/>
 
 ## How to install
-Install the skill by running this command
+Install this skill from the Mycroft Marketplace or by running this command:
 ```
 mycroft-msm install https://github.com/andlo/theia-ide-skill.git
 ```
-Skill will then install THEIA IDE. During installation a precompiled package is downloaded and extracted.
+During installation a precompiled package is downloaded and extracted.
 
-When done, there should be a log info saying "Starting THEIA IDE" and Mycroft should tell you by voice that he has installed the skill.
-You can then open a web-browser and go to http://picroft:3000 if your Mycroft device is picroft. If on a Mark One go to http://mark_1:3000
-You then get access to the THEIA IDE in a workplace located /opt/mycroft/skills.
+When done, there should be a log saying "Starting THEIA IDE" and Mycroft should inform you it is ready for use.
+You can then open a web-browser and go to http://picroft:3000 if your Mycroft device is Picroft, or http://mark_1:3000 for a Mark 1.  Alternately you can ask Mycroft "what is my IP" and use that information to build a URL such as:  https://192.168.1.33:3000.
 
-Skillsettings on https://home.mycroft.ai/ have one checkbox for setting autostart or not.
+The Skill Settings on https://home.mycroft.ai/ have one checkbox for setting autostart or not.  If not set to autostart, you must first tell Mycroft to turn on Theia by saying "Hey Mycroft, activate IDE".
 
-WARNING: There is not any password protection to access the IDE and the integrated terminal.
-So think twice before exposing your device to the internet.
+__WARNING__: There is no password protection to access the IDE and the integrated terminal.  Think twice before setting autostart and exposing your device to the internet.
 
-## Updating
-For now, to update the THEIA IDE remove and reinstall this skill.
+## Updating the THEIA package
+To update the precompiled binaries from my [Theia for Mycroft repo](https://github.com/andlo/theia-for-mycroft), remove and reinstall this skill.
 
 ## Mark 1
-On Mark_1 the firewall needs to be open. SSH to your Mark_1 and run the follow command
+On a Mark 1 the default firewall needs to be opened. SSH to your Mark 1 and run the follow command:
 ```
 sudo ufw allow from any to any port 3000 proto tcp
 ```
 
 ## Git integration
-The IDE doesn't have a way to ask your username and password to github. So to get integration to work seamlessly,
-you can set git to remember your username and password.
+The IDE doesn't have a way to directly set your username and password to GitHub. To get integration to work seamlessly,
+you can configure  `git` to remember your username and password.
 
-This is done by these three git commands and can be done in the terminal direcly in the IDE.
+This is done via these three git commands.  SSH to your device or use the integrated terminal direcly in the IDE, then enter:
 ```
 git config --global credential.helper store
 git config --global user.name "your_username"
 git config --global user.password "your_password"
 ```
-WARNING: Your git account passwords will be saved in plaintext format, in the global
-.gitconfig file, e.g in /home/pi/.gitconfig
-If this is undesirable to you, use an ssh key for your accounts instead.
 
+__WARNING__: Your git account passwords are saved in plaintext format in the global .gitconfig file, e.g under "/home/pi/.gitconfig".  If security is a concern, you can use an SSH key for your account instead.
 
 ## Examples
 * "Activate IDE"
@@ -65,9 +59,9 @@ Andreas Lorensen (@andlo)
 platform_mark1 platform_picroft
 
 ## Licensing
-This skill it self is licensed by GNU GENERAL PUBLIC LICENSE Version 3 - https://github.com/andlo/theia-ide-skill/blob/master/LICENSE
+This skill is licensed by GNU GENERAL PUBLIC LICENSE Version 3 - https://github.com/andlo/theia-ide-skill/blob/master/LICENSE
 
-The skill will install other software which by them self have individualy and different licenses.
+The skill installs other software with different licenses.
 * Theia-ide is licensed by Eclipse Public License version  2 - https://github.com/theia-ide/theia/blob/master/LICENSE
 * Git is licensed by GNU GENERAL PUBLIC LICENSE Version 2 - https://github.com/git/git/blob/master/COPYING
 * Node.js seems to have its own license - https://github.com/nodejs/node/blob/master/LICENSE
@@ -80,3 +74,5 @@ The skill will install other software which by them self have individualy and di
 #IDE
 #editor
 #dev
+#vscode
+#python
