@@ -9,7 +9,7 @@
                         "name": "auto_start",
                         "label": "Autostart IDE",
                         "type": "checkbox",
-                        "value": "true"
+                        "value": "false"
                     }
                 ]
             }
